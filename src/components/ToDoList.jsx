@@ -8,7 +8,8 @@ import Checkbox from "@mui/material/Checkbox";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-export default function ToDoList() {
+export default function ToDoList({list}) {
+  console.log(list)
   return (
     <ListItem
       secondaryAction={
@@ -22,7 +23,7 @@ export default function ToDoList() {
         <ListItemIcon>
           <Checkbox edge="start" tabIndex={-1} disableRipple />
         </ListItemIcon>
-        <ListItemText primary={`Line item`}/>
+        <ListItemText primary={list}/>
       </ListItemButton>
     </ListItem>
   );

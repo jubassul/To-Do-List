@@ -13,6 +13,10 @@ export default function Home() {
     setLists([...lists, list]);
   }
 
+  const handleDeleteToDO = ()=> {
+
+  }
+
   return (
     <div>
       <Container className="container" maxWidth="xs">

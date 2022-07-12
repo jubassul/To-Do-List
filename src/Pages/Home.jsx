@@ -13,12 +13,22 @@ export default function Home() {
   };
 
   const handleDeleteToDO = (id) => {
-    console.log(id);
     //se o list.id for diferente o id, exclui o id igual.
 
     const filteredList = lists.filter((list) => list.id !== id);
     //mudar o estado da list, excluindo o id igual.
     setLists(filteredList);
+  };
+
+  const handleEditToDo = (id, editedText) => {
+    let listsArray = [...lists];
+    for (var i in listsArray) {
+      if (listsArray[i].id === id) {
+        listsArray[i].text = editedText;
+      }
+    }
+    // listsArray.splice(id, 1, {text:editedText, id:id})
+    setLists(listsArray);
   };
 
   return (
@@ -27,7 +37,11 @@ export default function Home() {
         <Form handleAddToList={handleAddToList} />
         <List sx={{ width: "100%", bgcolor: "background.paper" }}>
           {lists.map((list) => (
-            <ToDoList list={list} handleDeleteToDO={handleDeleteToDO} />
+            <ToDoList
+              list={list}
+              handleDeleteToDO={handleDeleteToDO}
+              handleEditToDo={handleEditToDo}
+            />
           ))}
         </List>
       </Container>
